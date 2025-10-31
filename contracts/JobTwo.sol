@@ -1,0 +1,5 @@
+contract Name {
+    constructor() {
+        
+    }
+}
