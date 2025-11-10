@@ -1,4 +1,4 @@
-// ignition/modules/VividNFT.ts
+// ignition/modules/jobTwo/VividNFT.ts
 
 import { buildModule } from "@nomicfoundation/hardhat-ignition/modules";
 
