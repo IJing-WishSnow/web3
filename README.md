@@ -1,5 +1,11 @@
 # NFT Auction Market Project
 
+合约访问地址：
+
+  https://sepolia.etherscan.io/address/0x62F83bFF3fe9E6AdD0A7cc10A2Eb018DB277E3F6
+  https://sepolia.etherscan.io/address/0xB5deBE39Cc222Cd9A956a8b7b87096d4af488E0B
+  https://sepolia.etherscan.io/address/0x615A76FcAB18D936165070BfF1AA0CFcD897f23C
+
 📖 项目概述
 
 一个基于以太坊的去中心化NFT拍卖市场，支持多币种支付（ETH/ERC20）和动态手续费系统。项目采用可升级合约架构，集成Chainlink价格预言机，提供安全高效的NFT拍卖服务。
