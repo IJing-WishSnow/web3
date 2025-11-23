@@ -1,0 +1,44 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-4369e33b3bd1b9c8aa806ec71f6aacc2b3d71e77",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/study/PriceConsumer.sol": "project/contracts/study/PriceConsumer.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": [
+        "project/:@chainlink/contracts/=npm/@chainlink/contracts@1.5.0/"
+      ]
+    },
+    "sources": {
+      "npm/@chainlink/contracts@1.5.0/src/v0.8/shared/interfaces/AggregatorV3Interface.sol": {
+        "content": "// SPDX-License-Identifier: MIT\npragma solidity ^0.8.0;\n\n// solhint-disable-next-line interface-starts-with-i\ninterface AggregatorV3Interface {\n  function decimals() external view returns (uint8);\n\n  function description() external view returns (string memory);\n\n  function version() external view returns (uint256);\n\n  function getRoundData(\n    uint80 _roundId\n  ) external view returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound);\n\n  function latestRoundData()\n    external\n    view\n    returns (uint80 roundId, int256 answer, uint256 startedAt, uint256 updatedAt, uint80 answeredInRound);\n}\n"
+      },
+      "project/contracts/study/PriceConsumer.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\npragma solidity ^0.8.7;\r\n\r\nimport \"@chainlink/contracts/src/v0.8/shared/interfaces/AggregatorV3Interface.sol\";\r\n\r\ncontract PriceConsumer {\r\n    AggregatorV3Interface internal priceFeed;\r\n    event PriceUpdated(int256 price);\r\n\r\n    constructor(address _aggregator) {\r\n        priceFeed = AggregatorV3Interface(_aggregator);\r\n    }\r\n\r\n    function getLatestPrice() public returns (int256) {\r\n        (\r\n            uint80 roundID,\r\n            int256 price,\r\n            uint startedAt,\r\n            uint timeStamp,\r\n            uint80 answeredInRound\r\n        ) = priceFeed.latestRoundData();\r\n        emit PriceUpdated(price);\r\n        return price;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}

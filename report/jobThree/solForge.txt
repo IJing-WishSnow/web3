@@ -1,0 +1,158 @@
+No contracts to compile
+No Solidity tests to compile
+
+Running Solidity tests
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerReentrancyTest
+    ✔ test_ReentrancyProtectionInGetLatestPrice()
+
+  contracts/jobThree/NFTAuction.t.sol:NFTAuctionInitializationTest
+    ✔ test_PreventReinitialization()
+    ✔ test_InitializationWithZeroAddress()
+    ✔ test_Initialization()
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerPermissionTest
+    ✔ test_OnlyOwnerUpgrade()
+    ✔ test_OnlyOwnerSetPriceFeed()
+    ✔ test_OnlyOwnerRemovePriceFeed()
+    ✔ test_OnlyOwnerBatchSetPriceFeeds()
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerIntegrationTest
+    ✔ test_PriceFeedRequestWorkflow()
+    ✔ test_PriceFeedAlreadySet()
+    ✔ test_MultiplePriceFeedRequests()
+    ✔ test_DuplicatePriceFeedRequest()
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerUpgradeTest
+    ✔ test_UpgradePreservesState()
+    ✔ test_UpgradeOnlyByOwner()
+    ✔ test_UpgradeNewFunctionality()
+    ✔ test_DataConsistencyAfterUpgrade()
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerEdgeCaseTest
+    ✔ test_ZeroAddressPriceFeed()
+    ✔ test_PriceFeedNotSet()
+    ✔ test_InvalidPrice()
+    ✔ test_ArrayLengthMismatch()
+
+  contracts/jobThree/NFTAuction.t.sol:NFTAuctionPermissionTest
+    ✔ test_OwnerCanEndAuction()
+    ✔ test_OnlySellerOrOwnerCanEndAuction()
+    ✔ test_OnlyOwnerCanSetPlatformFee()
+    ✔ test_OnlyOwnerCanSetMinUSDValue()
+    ✔ test_OnlyOwnerCanSetFeeTiers()
+    ✔ test_OnlyOwnerCanSetFeeRecipient()
+    ✔ test_OnlyOwnerCanEmergencyCancel()
+
+  contracts/jobThree/NFTAuction.t.sol:NFTAuctionEdgeCaseTest
+    ✔ test_SetPlatformFeeTooHigh()
+    ✔ test_SetFeeRecipientZeroAddress()
+    ✔ test_EndAuctionTwice()
+    ✔ test_EndAuctionBeforeEndTime()
+    ✔ test_CreateAuctionWithoutPriceFeed()
+    ✔ test_CreateAuctionWithZeroStartPrice()
+    ✔ test_CreateAuctionWithZeroAddressNFT()
+    ✔ test_CreateAuctionWithDurationTooShort()
+    ✔ test_CreateAuctionWithDurationTooLong()
+    ✔ test_BidWithWrongPaymentToken()
+    ✔ test_BidTooLow()
+    ✔ test_BidBeforeAuctionStarts()
+    ✔ test_BidAfterAuctionEnds()
+
+  contracts/jobThree/PriceConsumer.t.sol:PriceConsumerCoreTest
+    ✔ test_SetPriceFeed()
+    ✔ test_PreventReinitialization()
+    ✔ test_Initialization()
+    ✔ test_GetPriceData()
+    ✔ test_GetNormalizedPrice()
+    ✔ test_GetLatestPrice()
+    ✔ test_CalculateValue()
+    ✔ test_BatchSetPriceFeeds()
+
+  contracts/jobThree/NFTAuction.t.sol:NFTAuctionDynamicFeeTest
+    ✔ test_SetNewFeeTiers()
+    ✔ test_SetMinUSDValue()
+    ✔ test_SetInvalidFeeTiers()
+    ✔ test_MinUSDValueForFee()
+    ✔ test_GetAllFeeTiers()
+    ✔ test_DynamicFeeWithERC20()
+    ✔ test_DynamicFeeCalculation()
+    ✔ test_DefaultFeeTiers()
+    ✔ test_AuctionEndingWithDynamicFee()
+
+  contracts/jobThree/NFTERC721.t.sol:NFTERC721UnitTest
+    ✔ test_Version_Information()
+    ✔ test_Upgrade_DataPreservation()
+    ✔ test_TokenURI_RevertsNonExistent()
+    ✔ test_TokenURI_ReturnValue()
+    ✔ test_Permissions_UpgradeAccess()
+    ✔ test_Permissions_SetBaseURIAccess()
+    ✔ test_MintFunction_NormalFlow()
+    ✔ test_Initialization_StateVariables()
+    ✔ test_Initialization_PreventReinitialization()
+    ✔ test_Exists_Function()
+    ✔ test_ExceptionHandling_DuplicateMint()
+    ✔ test_Events_TokenMinted()
+    ✔ test_Events_BaseURIUpdated()
+    ✔ test_Concurrency_RaceConditions()
+    ✔ test_Concurrency_MultipleUsers()
+    ✔ test_BoundaryConditions_ZeroAddress()
+    ✔ test_BoundaryConditions_MaxTokenId()
+    ✔ testFuzz_TokenURI(uint256) (runs: 256)
+    ✔ testFuzz_MintAndTransfer(address,uint256) (runs: 256)
+
+  contracts/jobThree/NFTAuction.t.sol:NFTAuctionCoreTest
+    ✔ test_MultipleBids()
+    ✔ test_GetActiveAuctions()
+    ✔ test_EndAuctionWithoutBids()
+    ✔ test_EndAuctionWithWinner()
+    ✔ test_CreateAuctionWithETH()
+    ✔ test_CreateAuctionWithERC20()
+    ✔ test_BidWithETH()
+    ✔ test_BidWithERC20()
+
+  contracts/jobThree/PriceConsumerFuzz.t.sol:PriceConsumerFuzzTest
+    ✔ test_ZeroAndNearZeroAmounts()
+    ✔ test_MaxArraySizeBatchOperations()
+    ✔ test_ExtremePriceValues()
+    ✔ testFuzz_SetPriceFeed(address,address) (runs: 256)
+    ✔ testFuzz_RequestPriceFeed(address,string) (runs: 256)
+    ✔ testFuzz_NormalizedPriceProportionality(uint256) (runs: 256)
+    ✔ testFuzz_GetNormalizedPriceWithDifferentDecimals(uint8) (runs: 256)
+    ✔ testFuzz_CalculateValueConsistency(uint256,uint8) (runs: 256)
+    ✔ testFuzz_CalculateValue(uint256,uint8,int256) (runs: 256)
+    ✔ testFuzz_BatchSetPriceFeeds(uint8) (runs: 256)
+
+
+  94 passing
+
+| Coverage Report                                     |        |             |                                                                                |                                                                                  |
+| --------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| File Path                                           | Line % | Statement % | Uncovered Lines                                                                | Partially Covered Lines                                                          |
+| contracts\Counter.sol                               | 0.00   | 0.00        | 10-11, 15-17                                                                   | -                                                                                |
+| contracts\jobOne\JobOne.sol                         | 0.00   | 0.00        | 10, 14-15, 21-24, 33, 38-41, 47, 56-63, 70-120, 127-144, 151-158, 169-200,…    | 21-23, 38-40, 59-61, 70-72, 130-142, 151-157, 177-186, 188-192, 194-198, 214-224 |
+| contracts\jobThree\Mock\MockAggregatorV3.sol        | 100.00 | 100.00      | -                                                                              | -                                                                                |
+| contracts\jobThree\Mock\MockERC20.sol               | 0.00   | 0.00        | 25, 33, 43, 53                                                                 | -                                                                                |
+| contracts\study\ReentrancyAttack.sol                | 0.00   | 0.00        | 10, 15-22, 27, 36, 41-43, 48-50, 55, 64, 68-74, 78, 89-95, 99, 104-110, 114    | 41-43                                                                            |
+| contracts\study\Timelock.sol                        | 0.00   | 0.00        | 53-56, 61-64, 68-69, 73-74, 94-112, 127-141, 159-212, 219, 232-233             | 53-55, 61-63, 95-97, 128-130, 161-163, 165-167, 169-174, 185-193, 199-201        |
+| contracts\jobTwo\Begging.sol                        | 0.00   | 0.00        | 20, 28-29, 46-53, 63-64, 74, 83                                                | -                                                                                |
+| contracts\jobTwo\SimpleERC20.sol                    | 0.00   | 0.00        | 44-45, 61-67, 75, 84-85, 94-95, 107, 121-132, 141, 148-160, 167-171, 178-186,… | 128, 156-157, 182                                                                |
+| contracts\study\ABIEncode.sol                       | 0.00   | 0.00        | 11, 15, 19-25, 29-35, 50-53                                                    | -                                                                                |
+| contracts\study\Faucet.sol                          | 0.00   | 0.00        | 13, 17-29                                                                      | -                                                                                |
+| contracts\study\PriceConsumer.sol                   | 0.00   | 0.00        | 11, 15-23                                                                      | -                                                                                |
+| contracts\study\Airfrop.sol                         | 0.00   | 0.00        | 21-33, 40-54, 59-69, 73                                                        | 21-23, 27-29, 31-33, 40-42, 45-47, 49-54, 60-62, 65-67, 69, 73                   |
+| contracts\jobThree\Non-upgradable\PriceConsumer.sol | 0.00   | 0.00        | 41-42, 51-54, 62-63, 75-80, 89-105, 122-124, 133-139, 154-157, 174-181, 190,…  | 52, 76, 90, 100-102, 135-139, 155, 175, 210-217, 222-229, 245-247, 250-252       |
+| contracts\jobThree\Non-upgradable\NFTAuction.sol    | 0.00   | 0.00        | 176-177, 203-253, 268-292, 311-355, 369-458, 471-510, 523-524, 537-538, 549,…  | 204-207, 210-212, 224, 270-274, 277-282, 313-317, 329, 333-344, 371-372, 374,…   |
+| contracts\jobTwo\BaseERC721.sol                     | 0.00   | 0.00        | 69-72, 79-82, 89-90, 97-98, 105-112, 127-134, 141-146, 153-157, 164-173,…      | 387-410                                                                          |
+| contracts\jobThree\PriceConsumer.sol                | 66.67  | 63.53       | 108-109, 222-229, 251-279                                                      | 122, 149-150, 203, 223, 258-265, 270-277                                         |
+| contracts\study\Signature.sol                       | 0.00   | 0.00        | 19, 27-48, 61-66, 80, 89-95, 108, 116, 124, 161, 178-188, 206-209, 216-218,…   | -                                                                                |
+| contracts\jobThree\Non-upgradable\NFTERC721.sol     | 0.00   | 0.00        | 37-38, 47-48, 71-88, 98, 108                                                   | 77-88                                                                            |
+| contracts\jobThree\NFTAuction.sol                   | 88.35  | 76.50       | 294-296, 642, 650, 660-699, 748                                                | 309-311, 420, 458, 469, 492-496, 508, 512-523, 564-588, 600, 631, 661, 666-684,… |
+| contracts\study\DutchAuction.sol                    | 0.00   | 0.00        | 31, 38, 45, 50-70, 75-83, 88, 93, 98, 103-104                                  | 53, 55, 59, 62-66, 68-70, 75-83, 104                                             |
+| contracts\jobTwo\VividNFT.sol                       | 0.00   | 0.00        | 49-63, 74-84, 89-101, 112-129, 136, 142, 148, 155, 162, 169, 179-188           | 81-84, 182-185                                                                   |
+| contracts\jobThree\NFTERC721.sol                    | 96.88  | 95.00       | 159                                                                            | -                                                                                |
+| contracts\study\Study.sol                           | 0.00   | 0.00        | 8-9                                                                            | -                                                                                |
+| --------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Total                                               | 26.60  | 22.76       |                                                                                |                                                                                  |
+
+

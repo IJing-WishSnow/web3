@@ -1,4 +1,4 @@
-from web3 import Web3, HTTPProvider
+from BTC_ETH import Web3, HTTPProvider
 from eth_account.messages import encode_defunct
 
 private_key = "0x227dbb8586117d55284e26620bc76534dfbd2394be34cf4a09cb775d593b6f2b"

@@ -1,0 +1,872 @@
+No contracts to compile
+
+Running node:test tests
+
+  Counter
+    ✔ 调用inc()函数时应发出Increment事件 (151ms)
+    ✔ Increment事件总和应匹配当前值 (397ms)
+
+Using deployer: 0x8c8ab9b6178877246b224f8d745a1410c4928373
+Transaction hash: 0x6c9a2a27fbd61a3908d125f11dee55fe92f0ba244d84490cbd56be00d6954b30
+✅ NFT minted successfully!
+  VividNFT
+    ✔ Should successfully mint an NFT (19252ms)
+
+
+📋 Starting EventLog Tests
+
+
+✅ All EventLog tests completed successfully!
+
+✓ TokenMinted event emitted correctly
+  EventLog - Critical Event Emission Tests
+    NFT Events
+      ✔ Should emit TokenMinted event on mint (191ms)
+✓ Transfer event emitted on mint
+      ✔ Should emit Transfer event on mint (149ms)
+✓ BaseURIUpdated event emitted
+      ✔ Should emit BaseURIUpdated event (135ms)
+✓ AuctionCreated event emitted with correct data
+    Auction Events
+      ✔ Should emit AuctionCreated event (471ms)
+✓ NewBid event emitted with USD value: 600000000000
+      ✔ Should emit NewBid event on ETH bid (461ms)
+✓ NewBid event emitted for ERC20 bid
+      ✔ Should emit NewBid event on ERC20 bid (661ms)
+✓ AuctionEnded event: winner=0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC, fee=200bps
+      ✔ Should emit AuctionEnded event with winner (572ms)
+✓ AuctionCancelled event emitted for no bids
+      ✔ Should emit AuctionCancelled event for no bids (406ms)
+✓ AuctionCancelled event emitted on emergency
+      ✔ Should emit AuctionCancelled on emergency cancel (487ms)
+✓ FeeTiersUpdated event emitted
+      ✔ Should emit FeeTiersUpdated event (272ms)
+✓ PriceFeedUpdated event emitted
+    PriceConsumer Events
+      ✔ Should emit PriceFeedUpdated event (175ms)
+✓ PriceUpdated event emitted: 300000000000
+      ✔ Should emit PriceUpdated event on getLatestPrice (145ms)
+✓ PriceFeedRequested event emitted
+      ✔ Should emit PriceFeedRequested event (228ms)
+✓ PriceFeedApproved event emitted
+      ✔ Should emit PriceFeedApproved event (201ms)
+✓ Multiple events: 1 Transfer + 1 AuctionCreated
+    Multiple Events in Single Transaction
+      ✔ Should emit multiple events on auction with bid (360ms)
+✓ Auction end events: 1 Transfer + 1 AuctionEnded
+      ✔ Should emit multiple events on auction end (588ms)
+
+
+⬆️  Starting Upgradeability Tests
+
+
+✅ All Upgradeability tests completed successfully!
+
+✓ New NFT implementation deployed
+✓ NFT contract upgraded successfully
+  Upgradeability - UUPS Proxy Upgrade Tests
+    UUPS Upgrade Authorization
+      ✔ Should allow owner to upgrade NFT contract (333ms)
+✓ New PriceConsumer implementation deployed
+✓ PriceConsumer upgraded successfully
+      ✔ Should allow owner to upgrade PriceConsumer (242ms)
+✓ New implementation deployed
+✓ Auction contract upgraded
+      ✔ Should allow owner to upgrade Auction contract (329ms)
+✓ Non-owner upgrade rejected
+      ✔ Should reject upgrade from non-owner (328ms)
+✓ NFT minted before upgrade
+✓ NFT contract upgraded
+✓ NFT ownership preserved after upgrade
+    State Preservation After Upgrade
+      ✔ Should preserve NFT state after upgrade (243ms)
+✓ Auction created before upgrade
+✓ Contract upgraded
+✓ Auction data preserved
+      ✔ Should preserve auction data after upgrade (540ms)
+✓ 3 auctions created
+✓ Contract upgraded
+✓ Auction count preserved: 3
+      ✔ Should preserve auction count after upgrade (806ms)
+✓ Contract upgraded
+✓ Fee recipient preserved
+      ✔ Should preserve fee settings after upgrade (276ms)
+✓ Contract upgraded
+✓ Auction created after upgrade
+    Functionality After Upgrade
+      ✔ Should allow creating auctions after upgrade (563ms)
+✓ Auction created
+✓ Contract upgraded
+✓ Bid placed after upgrade
+      ✔ Should allow bidding after upgrade (459ms)
+✓ NFT contract upgraded
+✓ NFT minted after upgrade
+✓ NFT functionality works after upgrade
+      ✔ Should allow NFT minting after upgrade (144ms)
+✓ Implementation address verified
+    Proxy Implementation Verification
+      ✔ Should return correct implementation address (220ms)
+✓ Implementation address updated after upgrade
+      ✔ Should update implementation address after upgrade (253ms)
+✓ First upgrade completed
+✓ Second upgrade completed
+✓ Contract still functional after 2 upgrades
+    Multiple Upgrades
+      ✔ Should handle multiple sequential upgrades (357ms)
+✓ Contract upgraded
+✓ Reinitialization prevented
+    Reinitializer Protection
+      ✔ Should prevent reinitialization after upgrade (350ms)
+
+
+🧪 Starting AuctionERC20 Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Seller: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+Bidder1: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+Bidder2: 0x90f79bf6eb2c4f870365e785982e1f101e93b906
+Bidder3: 0x15d34aaf54267db7d7c367839aaf71a00a2c6a65
+Fee Recipient: 0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc
+
+
+✅ All AuctionERC20 tests completed successfully!
+
+✓ ERC20 auction setup complete
+✓ Winning bid placed: 200000000000000000000 tokens
+✓ Time advanced past auction end
+✓ AuctionEnded event emitted
+✓ Winner: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+✓ Amount: 200000000000000000000
+✓ USD Value: $200
+✓ Fee: 10000000000000000000 tokens
+✓ Fee Rate: 500 bps
+✓ NFT transferred to winner
+✓ Seller received: 190000000000000000000 tokens
+✓ Fee recipient received: 10000000000000000000 tokens
+✓ Auction marked as ended
+  AuctionERC20 - Complete ERC20 Payment Auction Flow Tests
+    Complete ERC20 Auction Flow with Winner
+      ✔ Should execute complete ERC20 auction flow: create -> bid -> end -> settle (1041ms)
+✓ Bidder1 first bid: 150 tokens
+✓ Bidder2 outbid: 200 tokens
+✓ Bidder1 refunded successfully
+✓ Bidder3 final bid: 250 tokens
+✓ Bidder3 won the auction
+      ✔ Should handle multiple ERC20 bids and refund correctly (1038ms)
+✓ Expected fee: 30000000000000000000 tokens (300 bps)
+✓ Fee calculation verified
+✓ Fee recipient received correct amount: 30000000000000000000 tokens
+      ✔ Should calculate and distribute ERC20 platform fee correctly (824ms)
+✓ ERC20 auction created with no bids
+✓ NFT in auction contract
+✓ AuctionCancelled event emitted
+✓ NFT returned to seller
+    ERC20 Auction with No Bids
+      ✔ Should return NFT to seller when ERC20 auction ends with no bids (751ms)
+✓ Approved only 50 tokens
+✓ Bidding prevented due to insufficient approval
+    ERC20 Approval and Bidding
+      ✔ Should NOT allow bidding without sufficient ERC20 approval (624ms)
+✓ Bidder1 has no tokens
+✓ Bidding prevented due to insufficient balance
+      ✔ Should NOT allow bidding without sufficient ERC20 balance (674ms)
+✓ Approved exact bid amount: 150000000000000000000
+✓ Bid placed successfully with exact approval
+✓ Highest bid recorded: 150000000000000000000
+      ✔ Should handle exact approval amount correctly (946ms)
+✓ Bid amount: 1000000000000000000000 tokens
+✓ Fee: 30000000000000000000 tokens
+✓ Seller received: 970000000000000000000 tokens
+✓ Expected seller amount: 970000000000000000000 tokens
+✓ ERC20 payment distribution verified
+    ERC20 Payment Distribution
+      ✔ Should correctly split ERC20 payment between seller and platform (1282ms)
+✓ Created 3 ERC20 auctions
+✓ Auction 0: Bid 200000000000000000000 tokens
+✓ Auction 1: Bid 300000000000000000000 tokens
+✓ Auction 2: Bid 400000000000000000000 tokens
+✓ Auction 0 ended
+✓ Auction 1 ended
+✓ Auction 2 ended
+✓ All NFTs transferred to correct winners
+      ✔ Should handle multiple ERC20 auctions independently (1824ms)
+✓ ETH payment prevented for ERC20 auction
+    Mixed Payment Types Validation
+      ✔ Should NOT allow ETH payment for ERC20 auction (926ms)
+✓ Payment token correctly set to: 0x5302E909d1e93e30F05B5D6Eea766363D14F9892
+      ✔ Should verify payment token is correctly set (599ms)
+✓ Auction created with 6-decimal token
+✓ Bid placed with 6-decimal token: 200000000
+✓ Auction ended successfully with 6-decimal token
+    ERC20 Token Decimals Handling
+      ✔ Should handle tokens with 6 decimals (like USDC) (614ms)
+✓ 8-decimal token auction completed successfully
+      ✔ Should handle tokens with 8 decimals (451ms)
+✓ Bid placed
+✓ AuctionCancelled event emitted
+✓ Bidder refunded: 200000000000000000000 tokens
+✓ NFT returned to seller
+    ERC20 Emergency Cancellation
+      ✔ Should allow owner to emergency cancel ERC20 auction and refund bidder (523ms)
+
+
+🧪 Starting AuctionEth Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Seller: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+Bidder1: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+Bidder2: 0x90f79bf6eb2c4f870365e785982e1f101e93b906
+Bidder3: 0x15d34aaf54267db7d7c367839aaf71a00a2c6a65
+Fee Recipient: 0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc
+
+
+✅ All AuctionEth tests completed successfully!
+
+✓ Auction setup complete
+✓ Winning bid placed: 2000000000000000000 wei
+✓ Time advanced past auction end
+✓ AuctionEnded event emitted
+✓ Winner: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+✓ Amount: 2000000000000000000
+✓ USD Value: $6000
+✓ Fee: 60000000000000000 wei
+✓ Fee Rate: 300 bps
+✓ NFT transferred to winner
+✓ Seller received: 1939757007530313836 wei
+✓ Fee recipient received: 60000000000000000 wei
+✓ Auction marked as ended
+  AuctionEth - Complete ETH Payment Auction Flow Tests
+    Complete Auction Flow with Winner
+      ✔ Should execute complete auction flow: create -> bid -> end -> settle (809ms)
+✓ Bidder1 first bid: 1.5 ETH
+✓ Bidder2 outbid: 2 ETH
+✓ Bidder3 final bid: 2.5 ETH
+✓ Bidder1 refunded successfully
+✓ Bidder3 won the auction
+      ✔ Should handle multiple bids and refund correctly (659ms)
+✓ Expected fee: 200000000000000000 wei (200 bps)
+✓ Fee calculation verified
+✓ Fee recipient received correct amount: 200000000000000000 wei
+      ✔ Should calculate and distribute platform fee correctly (578ms)
+✓ Auction created with no bids
+✓ NFT in auction contract
+✓ AuctionCancelled event emitted
+✓ NFT returned to seller
+✓ Auction marked as ended
+    Auction with No Bids
+      ✔ Should return NFT to seller when auction ends with no bids (508ms)
+✓ AuctionCancelled event emitted for auction with no bids
+      ✔ Should emit AuctionCancelled event with no winner (422ms)
+✓ Bid placed
+✓ Ending auction before time prevented as expected
+    Auction Timing and Access Control
+      ✔ Should NOT allow ending auction before time expires (513ms)
+✓ Seller successfully ended auction
+      ✔ Should allow seller to end auction after time expires (512ms)
+✓ Owner successfully ended auction
+      ✔ Should allow owner to end auction after time expires (441ms)
+✓ Non-authorized user prevented from ending auction
+      ✔ Should NOT allow non-seller/non-owner to end auction (461ms)
+✓ Auction ended successfully
+✓ Double-ending prevented as expected
+      ✔ Should NOT allow ending already ended auction (657ms)
+✓ Bid placed
+✓ AuctionCancelled event emitted
+✓ Bidder refunded: 2000000000000000000 wei
+✓ NFT returned to seller
+✓ Auction marked as ended
+    Emergency Cancellation
+      ✔ Should allow owner to emergency cancel active auction (681ms)
+✓ Non-owner prevented from emergency cancel
+      ✔ Should NOT allow non-owner to emergency cancel (795ms)
+✓ Bid amount: 10000000000000000000 wei
+✓ Fee: 200000000000000000 wei
+✓ Seller received: 9799788774998521425 wei
+✓ Expected seller amount: 9800000000000000000 wei
+✓ Payment distribution verified
+    Payment Distribution Verification
+      ✔ Should correctly split payment between seller and platform (762ms)
+✓ Created 3 auctions
+✓ Auction 0: Bid 2000000000000000000 wei
+✓ Auction 1: Bid 3000000000000000000 wei
+✓ Auction 2: Bid 4000000000000000000 wei
+✓ Auction 0 ended
+✓ Auction 1 ended
+✓ Auction 2 ended
+✓ All NFTs transferred to correct winners
+      ✔ Should handle multiple auctions independently (1202ms)
+
+
+🧪 Starting FeeSystem Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Seller: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+Bidder1: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+Fee Recipient: 0x15d34aaf54267db7d7c367839aaf71a00a2c6a65
+
+
+✅ All FeeSystem tests completed successfully!
+
+✓ Default platform fee: 200 bps (2%)
+  FeeSystem - Dynamic Fee Calculation Tests
+    Default Fee Configuration
+      ✔ Should initialize with default platform fee of 2% (408ms)
+✓ Fee tier count: 4
+      ✔ Should initialize with 4 fee tiers (314ms)
+✓ Retrieved 4 fee tiers:
+  Tier 1: $0 - $1,000 → 5%
+  Tier 2: $1,000 - $10,000 → 3%
+  Tier 3: $10,000 - $100,000 → 2%
+  Tier 4: $100,000+ → 1%
+      ✔ Should retrieve all fee tiers correctly (250ms)
+✓ Minimum USD value: $10
+      ✔ Should have correct minimum USD value ($10) (224ms)
+✓ Bid: 0.1 ETH (~$300)
+✓ Fee tier: 1 (5%)
+✓ Fee: 5000000000000000 wei
+    Fee Tier Testing
+      ✔ Should use 5% fee for Tier 1 ($0 - $1,000) (490ms)
+✓ Bid: 1 ETH (~$3,000)
+✓ Fee tier: 2 (3%)
+✓ Fee: 30000000000000000 wei
+      ✔ Should use 3% fee for Tier 2 ($1,000 - $10,000) (508ms)
+✓ Bid: 10 ETH (~$30,000)
+✓ Fee tier: 3 (2%)
+✓ Fee: 200000000000000000 wei
+      ✔ Should use 2% fee for Tier 3 ($10,000 - $100,000) (516ms)
+✓ Bid: 50 ETH (~$150,000)
+✓ Fee tier: 4 (1%)
+✓ Fee: 500000000000000000 wei
+      ✔ Should use 1% fee for Tier 4 ($100,000+) (392ms)
+✓ Bid: 0.015 ETH (~$45)
+✓ Above $10 threshold: 500 bps (5%)
+      ✔ Should use default fee for amounts below minimum USD (523ms)
+✓ 0.333 ETH (~$999): 500 bps
+✓ 0.334 ETH (~$1,002): 300 bps
+    Fee Tier Boundary Testing
+      ✔ Should handle tier boundaries correctly (816ms)
+✓ Custom tiers set: 2
+    Custom Fee Configuration
+      ✔ Should allow owner to set custom fee tiers (212ms)
+✓ Non-owner prevented
+      ✔ Should NOT allow non-owner to set tiers (288ms)
+✓ Fee > 10% rejected
+      ✔ Should reject fees > 10% (230ms)
+✓ Expected: 100000000000000000 wei (2%)
+✓ Actual fee matched expected
+    Fee Integration
+      ✔ Should apply correct fee in settlement (779ms)
+
+
+🧪 Starting AuctionCore Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Seller: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+Bidder1: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+Bidder2: 0x90f79bf6eb2c4f870365e785982e1f101e93b906
+Bidder3: 0x15d34aaf54267db7d7c367839aaf71a00a2c6a65
+Fee Recipient: 0x9965507d1a55bcc2695c58ba16fb37d819b0a4dc
+
+
+✅ All AuctionCore tests completed successfully!
+
+✓ NFT minted to seller
+✓ NFT approved for auction contract
+✓ Auction created with ID: 0
+✓ Start price: 1000000000000000000 wei
+✓ Auction data verified
+  AuctionCore - Auction Creation and Basic Bidding Tests
+    Auction Creation Tests
+      ✔ Should create auction with ETH payment successfully (629ms)
+✓ Zero price auction prevented as expected
+      ✔ Should NOT allow creating auction with zero price (413ms)
+✓ Short duration auction prevented as expected
+      ✔ Should NOT allow creating auction with duration too short (445ms)
+✓ Long duration auction prevented as expected
+      ✔ Should NOT allow creating auction with duration too long (415ms)
+✓ NFT minted but NOT approved
+✓ Auction without approval prevented as expected
+      ✔ Should NOT allow creating auction without NFT approval (425ms)
+✓ Initial auction count: 0
+✓ Auction count after 3 auctions: 3
+      ✔ Should increment auction counter correctly (569ms)
+✓ Auction created
+✓ Bid placed: 1500000000000000000 wei
+✓ USD value: $4500
+✓ Highest bidder updated to: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+    ETH Bidding Tests
+      ✔ Should allow bidding with ETH successfully (528ms)
+✓ First bid placed by bidder1: 1500000000000000000
+✓ Second bid placed by bidder2: 2000000000000000000
+✓ Previous bidder refunded successfully
+✓ Highest bidder updated to bidder2
+      ✔ Should refund previous bidder when outbid (503ms)
+✓ First bid: 2 ETH
+✓ Lower bid prevented as expected
+      ✔ Should NOT allow bid lower than highest bid (401ms)
+✓ Equal bid prevented as expected
+      ✔ Should NOT allow bid equal to highest bid (437ms)
+✓ Bid 1: 1500000000000000000 wei
+✓ Bid 2: 2000000000000000000 wei
+✓ Bid 3: 2500000000000000000 wei
+✓ Bid 4: 3000000000000000000 wei
+✓ Bid 5: 3500000000000000000 wei
+✓ Final highest bidder: 0x90F79bf6EB2c4f870365E785982E1f101E93b906
+✓ Final highest bid: 3500000000000000000
+      ✔ Should allow multiple sequential bids (688ms)
+✓ Active auctions: 3
+✓ Auction IDs: 0, 1, 2
+    Auction State Management
+      ✔ Should track active auctions correctly (860ms)
+✓ Seller: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+✓ NFT Contract: 0xAA292E8611aDF267e563f334Ee42320aC96D0463
+✓ Token ID: 40
+✓ Start Price: 2500000000000000000
+✓ Ended: false
+      ✔ Should retrieve auction details correctly (658ms)
+⚠ Note: Contract may allow seller to bid (check business logic)
+    Edge Cases and Error Handling
+      ✔ Should NOT allow seller to bid on own auction (614ms)
+✓ Zero address NFT contract prevented as expected
+      ✔ Should handle zero address validations (691ms)
+
+Using deployer: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+User1: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+User2: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+✓ Implementation deployed at: 0x5fbdb2315678afecb367f032d93f642f64180aa3
+✓ Contract bytecode exists (length: 35634)
+  Core Contract Deployment Tests
+    PriceConsumer - Deployment and Initialization
+      ✔ Should deploy implementation contract successfully (without initialization) (140ms)
+✓ Owner on uninitialized implementation: 0x0000000000000000000000000000000000000000
+✓ This is expected - implementation is not initialized
+      ✔ Should NOT be able to read state from uninitialized implementation
+✓ Implementation deployed at: 0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+✓ Proxy deployed at: 0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9
+✓ Version: PriceConsumer v1.0.0
+✓ Owner correctly initialized: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+✓ ETH price feed initialized correctly
+      ✔ Should deploy with proxy and initialize correctly (115ms)
+✓ Re-initialization prevented as expected
+      ✔ Should NOT allow re-initialization after proxy initialization (129ms)
+✓ Implementation deployed at: 0x0165878a594ca255338adfa4d48449f69242eb8f
+✓ Contract bytecode exists
+    NFTERC721 - Deployment and Initialization
+      ✔ Should deploy implementation contract successfully (without initialization)
+✓ Name on uninitialized implementation: ""
+✓ Empty/default value expected for uninitialized contract
+      ✔ Should NOT be able to use uninitialized implementation
+✓ Implementation deployed at: 0x2279b7a0a67db372996a5fab50d91eaa73d2ebe6
+✓ Proxy deployed at: 0x8a791620dd6260079bf849dc5567adc3f2fdc318
+✓ Name: TestNFT
+✓ Symbol: TNFT
+✓ Version: v1.0.0
+✓ Owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+      ✔ Should deploy with proxy and initialize correctly (117ms)
+✓ Re-initialization prevented as expected
+      ✔ Should NOT allow re-initialization (134ms)
+✓ Implementation deployed at: 0xa51c1fc2f0d1a1b8494ed1fe312d7c3a78ed91c0
+✓ Contract bytecode exists
+    NFTAuction - Deployment and Initialization
+      ✔ Should deploy implementation contract successfully (without initialization)
+✓ PriceConsumer deployed
+✓ NFTAuction implementation deployed
+✓ NFTAuction proxy deployed
+✓ Owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+✓ Fee recipient: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+✓ PriceConsumer: 0x9A676e781A523b5d0C0e43731313A708CB607508
+✓ Default fee: 200 bps
+✓ Auction count: 0
+✓ Fee tiers: 4
+      ✔ Should deploy with proxy and initialize correctly (202ms)
+✓ Re-initialization prevented as expected
+      ✔ Should NOT allow re-initialization (199ms)
+
+✅ All contracts deployed and initialized successfully:
+   PriceConsumer: 0x4ed7c70f96b99c776995fb64377f0d4ab3b0e1c1 (vPriceConsumer v1.0.0)
+   NFTERC721: 0xa85233c63b9ee964add6f2cffe00fd84eb32338f (vv1.0.0)
+   NFTAuction: 0x7a2088a1bfc9d81c55368ae168c2c02570cb814f (owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266)
+    Integration - All Contracts Deployment
+      ✔ Should deploy and initialize all three contracts with proper dependencies (278ms)
+
+
+🧪 Starting NFTERC721 Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+User1: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+User2: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+User3: 0x90f79bf6eb2c4f870365e785982e1f101e93b906
+
+
+✅ All NFTERC721 tests completed successfully!
+
+✓ Mint transaction confirmed: 0x3269edc91139b01a577113a9b10c2a0dcad6d542c3ac14bc841d476a487571af
+✓ TokenMinted event emitted correctly
+✓ Token owner: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+✓ User1 balance: 1
+  NFTERC721 - NFT Minting and Transfer Tests
+    NFT Minting Tests
+      ✔ Should mint NFT successfully and emit TokenMinted event (227ms)
+✓ User2 successfully minted NFT for user3
+✓ Token ownership confirmed: 0x90F79bf6EB2c4f870365E785982E1f101E93b906
+      ✔ Should allow anyone to mint (no access control) (100ms)
+✓ First mint successful
+✓ Duplicate minting prevented as expected
+      ✔ Should NOT allow minting same tokenId twice (138ms)
+✓ User1 balance after 3 mints: 3
+      ✔ Should increment balance correctly after multiple mints (210ms)
+✓ TokenId 0 URI: ipfs://bafybeie6fvm4v775pwd37dc3jzy462cjyxvy3wvjvxx55g4rh2cp2aa62i/bubuyier.json
+    Token URI Functionality Tests
+      ✔ Should return correct URI for tokenId 0 (special case) (88ms)
+✓ TokenId 1 URI: ipfs://bafybeie6fvm4v775pwd37dc3jzy462cjyxvy3wvjvxx55g4rh2cp2aa62i/bubuyier.json
+      ✔ Should return correct URI for tokenId 1 (special case) (90ms)
+✓ TokenId 2 URI: ipfs://bafybeie6fvm4v775pwd37dc3jzy462cjyxvy3wvjvxx55g4rh2cp2aa62i/bubuyier2.json
+      ✔ Should return correct URI for tokenId 2 (sequential naming) (99ms)
+✓ TokenId 10 URI: ipfs://bafybeie6fvm4v775pwd37dc3jzy462cjyxvy3wvjvxx55g4rh2cp2aa62i/bubuyier10.json
+✓ TokenId 999 URI: ipfs://bafybeie6fvm4v775pwd37dc3jzy462cjyxvy3wvjvxx55g4rh2cp2aa62i/bubuyier999.json
+      ✔ Should return correct URI for higher tokenIds (138ms)
+✓ TokenURI query reverted for non-existent token as expected
+      ✔ Should revert when querying URI for non-existent token
+✓ Original URI: ipfs://original/bubuyier5.json
+✓ BaseURIUpdated event emitted
+✓ Updated URI: ipfs://updated/bubuyier5.json
+      ✔ Should reflect new base URI after update (167ms)
+✓ Base URI updated by owner
+    Base URI Management
+      ✔ Should allow owner to update base URI (91ms)
+✓ Non-owner prevented from updating base URI as expected
+      ✔ Should NOT allow non-owner to update base URI (95ms)
+✓ Token minted to user1
+✓ Transfer event emitted correctly
+✓ Token transferred to user2: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+✓ Balances updated correctly: user1=0, user2=1
+    NFT Transfer Tests
+      ✔ Should transfer NFT using transferFrom (164ms)
+✓ Safe transfer completed
+✓ Token safely transferred to user2
+      ✔ Should transfer NFT using safeTransferFrom (151ms)
+✓ Unauthorized transfer prevented as expected
+      ✔ Should NOT allow unauthorized transfer (176ms)
+✓ Approval event emitted
+✓ User2 approved for token: 0x3C44CdDdB6a900fa2b585dd299e03d12FA4293BC
+✓ Approved user successfully transferred token
+    Approval and Operator Tests
+      ✔ Should approve address and allow transfer (305ms)
+✓ ApprovalForAll event emitted
+✓ User2 is approved for all of user1's tokens
+✓ Operator successfully transferred token using approval for all
+      ✔ Should set approval for all and allow transfers (380ms)
+✓ Name: MyAwesomeNFT
+✓ Symbol: MANFT
+    Query and Utility Functions
+      ✔ Should return correct name and symbol (138ms)
+✓ Token 123 does not exist: false
+✓ Token 123 now exists: true
+      ✔ Should correctly check token existence (157ms)
+✓ Version: v1.0.0
+      ✔ Should return correct version (128ms)
+✓ getNextTokenId message: Token ID tracking not implemented in this version
+      ✔ Should return placeholder message for getNextTokenId (130ms)
+✓ Initial balance: 0
+✓ Balance after minting 5 tokens: 5
+      ✔ Should return correct balance for multiple tokens (645ms)
+✓ Successfully minted 10 tokens to same address, balance: 10
+    Edge Cases and Error Handling
+      ✔ Should handle minting to same address multiple times (608ms)
+✓ Token minted to user1
+✓ Token transferred from user1 to user2
+✓ Token transferred from user2 to user3
+✓ Token transferred from user3 back to user1
+✓ Token returned to original owner: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+      ✔ Should handle transfers between multiple parties (329ms)
+
+
+🧪 Starting PriceConsumer Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+User1: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+User2: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+
+
+✅ All PriceConsumer tests completed successfully!
+
+✓ Mock price feed deployed at: 0x5fbdb2315678afecb367f032d93f642f64180aa3
+✓ PriceConsumer deployed at: 0xcf7ed3acca5a467e9e704c703e8d87f634fb0fc9
+✓ Version: PriceConsumer v1.0.0
+✓ ETH price feed initialized: true
+✓ Owner: 0xf39Fd6e51aad88F6F4ce6aB8827279cffFb92266
+  PriceConsumer - Chainlink Price Query and USD Calculation Tests
+    Deployment and Initialization
+      ✔ Should deploy and initialize with ETH price feed (273ms)
+✓ Re-initialization prevented as expected
+      ✔ Should NOT allow re-initialization (188ms)
+✓ PriceFeedUpdated event emitted
+✓ Price feed set for token: 0x1234567890123456789012345678901234567890
+    Price Feed Management
+      ✔ Should allow owner to set price feed for a token (246ms)
+✓ Batch price feeds set for 3 tokens
+✓ All 3 price feeds verified
+      ✔ Should allow batch setting price feeds (160ms)
+✓ Batch setting reverted with mismatched arrays as expected
+      ✔ Should revert batch setting with mismatched array lengths (147ms)
+✓ Price feed set for token
+✓ Price feed removed for token
+      ✔ Should allow owner to remove price feed (234ms)
+✓ Non-owner prevented from setting price feed as expected
+      ✔ Should NOT allow non-owner to set price feed (145ms)
+✓ PriceUpdated event emitted
+✓ Latest ETH price: 300000000000
+    Chainlink Price Query Tests
+      ✔ Should get latest price for ETH (167ms)
+✓ Raw price: 300000000000
+✓ Decimals: 8
+✓ Description: ETH / USD
+      ✔ Should get price data with decimals and description (153ms)
+✓ Normalized price (18 decimals): 3000000000000000000000
+✓ Price in ETH format: $3000.00
+      ✔ Should get normalized price (18 decimals) (147ms)
+✓ Description: ETH / USD
+✓ Decimals: 8
+✓ Aggregator version: 4
+      ✔ Should get price feed info (439ms)
+✓ Query reverted for non-set price feed as expected
+      ✔ Should revert when querying price for non-set feed (262ms)
+✓ 1 ETH = $3000 USD (8 decimals)
+    USD Price Calculation Tests
+      ✔ Should calculate USD value for ETH amount (154ms)
+✓ 0.1 ETH = $300 USD
+✓ 0.5 ETH = $1500 USD
+✓ 1 ETH = $3000 USD
+✓ 2 ETH = $6000 USD
+✓ 10 ETH = $30000 USD
+      ✔ Should calculate USD value for different ETH amounts (255ms)
+✓ 1 token (6 decimals) = $3000 USD
+✓ 1 token (18 decimals) = $3000 USD
+      ✔ Should calculate USD value with different token decimals (248ms)
+✓ Consistent USD value: $3000
+      ✔ Should return consistent USD calculations (276ms)
+✓ Price feed requested by user: 0x70997970C51812dc3A010C7d01b50e0d17dc79C8
+✓ Token: 0x1000000000000000000000000000000000000001
+✓ Symbol: TEST
+    Price Feed Request System
+      ✔ Should allow users to request price feed for a token (292ms)
+✓ Request prevented for already set price feed as expected
+      ✔ Should NOT allow requesting price feed for already set token (243ms)
+✓ User requested price feed
+✓ PriceFeedApproved event emitted
+✓ Price feed approved and set for token
+      ✔ Should allow owner to approve price feed request (402ms)
+✓ ETH price feed is set: true
+✓ Random token is not set: false
+    Query and Utility Functions
+      ✔ Should correctly check if price feed is set (256ms)
+✓ Version: PriceConsumer v1.0.0
+      ✔ Should return correct version (230ms)
+✓ Price feed set for USDC
+✓ Price feed set for USDT
+✓ Price feed set for DAI
+✓ All 3 tokens have price feeds configured
+✓ 100 USDC = $300000 USD
+✓ 100 USDT = $300000 USD
+✓ 100 DAI = $300000 USD
+    Integration with Multiple Price Feeds
+      ✔ Should manage multiple token price feeds correctly (373ms)
+
+
+🔗 Starting Integration Tests
+
+
+✅ All Integration tests completed successfully!
+
+✓ NFT minted
+✓ Auction created
+✓ Bid 1: 2 ETH
+✓ Bid 2: 3 ETH
+✓ Bid 3: 5 ETH (winner)
+✓ Auction ended
+✓ NFT transferred to winner
+  Integration - End-to-End Flow Tests
+    Complete ETH Auction Flow
+      ✔ Should execute full auction lifecycle with ETH (1028ms)
+✓ Price feed set
+✓ Tokens minted to bidders
+✓ Auction created
+✓ Bid 1: 200 tokens
+✓ Bid 2: 500 tokens (winner)
+✓ Auction ended
+✓ NFT transferred to winner
+    Complete ERC20 Auction Flow
+      ✔ Should execute full auction lifecycle with ERC20 (723ms)
+✓ 3 auctions created
+✓ Bids placed on all auctions
+✓ All 3 auctions active
+    Multiple Concurrent Auctions
+      ✔ Should handle multiple auctions simultaneously (570ms)
+✓ Bid: 1 ETH (~$3000)
+✓ Fee tier: 3% (Tier 2)
+    Price Feed Integration
+      ✔ Should calculate fees based on USD value (345ms)
+✓ Seller1 auction created
+✓ Seller2 auction created
+✓ Bidders participated
+✓ 2 total auctions
+    Multi-User Interaction
+      ✔ Should handle multiple sellers and bidders (444ms)
+✓ Platform fee received: 200000000000000000 wei
+    Fee Distribution
+      ✔ Should distribute fees correctly to platform (329ms)
+✓ Auction created with bid
+✓ Emergency cancelled
+✓ NFT returned to seller
+✓ Bidder refunded
+    Emergency Scenarios
+      ✔ Should handle emergency cancellation properly (276ms)
+✓ 6-decimal token price feed set
+✓ 8-decimal token price feed set
+✓ Auction created with 6-decimal token
+    Token Decimals Handling
+      ✔ Should handle different token decimals correctly (254ms)
+
+
+🛠️ Starting ErrorRecovery Tests
+
+
+✅ All ErrorRecovery tests completed successfully!
+
+✓ Zero start price rejected
+  ErrorRecovery - Exception Handling Tests
+    Invalid Auction Creation
+      ✔ Should reject auction with zero start price (321ms)
+✓ Too short duration rejected
+      ✔ Should reject auction with too short duration (271ms)
+✓ Too long duration rejected
+      ✔ Should reject auction with too long duration (271ms)
+✓ No approval rejected
+      ✔ Should reject auction without NFT approval (201ms)
+✓ Non-existent NFT rejected
+      ✔ Should reject auction with non-existent NFT (172ms)
+✓ Auction starts immediately - test skipped
+    Invalid Bidding Scenarios
+      ✔ Should reject bid before auction starts (199ms)
+✓ Bid after end rejected
+      ✔ Should reject bid after auction ends (204ms)
+✓ Low bid rejected
+      ✔ Should reject bid lower than current highest (200ms)
+✓ ETH for ERC20 auction rejected
+      ✔ Should reject ETH bid for ERC20 auction (206ms)
+✓ Insufficient balance rejected
+      ✔ Should reject ERC20 bid without sufficient balance (179ms)
+✓ No ERC20 approval rejected
+      ✔ Should reject ERC20 bid without approval (193ms)
+✓ Early end rejected
+    Invalid Auction Ending
+      ✔ Should reject ending auction before time (149ms)
+✓ Double end rejected
+      ✔ Should reject ending already ended auction (153ms)
+✓ Unauthorized end rejected
+      ✔ Should reject unauthorized user ending auction (152ms)
+✓ Emergency cancel with no bids successful
+    Emergency Cancel Scenarios
+      ✔ Should handle emergency cancel with no bids (137ms)
+✓ Emergency cancel with refund successful
+      ✔ Should handle emergency cancel with active bid (187ms)
+✓ Cancel of ended auction rejected
+      ✔ Should reject emergency cancel of already ended auction (160ms)
+✓ Minimum duration (1 minute) accepted
+    Edge Cases
+      ✔ Should handle auction with exact minimum duration (121ms)
+✓ Maximum duration (30 days) accepted
+      ✔ Should handle auction with exact maximum duration (133ms)
+✓ Self-outbid attempt rejected
+      ✔ Should handle multiple consecutive bids from same user (148ms)
+
+
+🔒 Starting Security Tests
+Owner: 0xf39fd6e51aad88f6f4ce6ab8827279cfffb92266
+Seller: 0x70997970c51812dc3a010c7d01b50e0d17dc79c8
+Bidder1: 0x3c44cdddb6a900fa2b585dd299e03d12fa4293bc
+Attacker: 0x15d34aaf54267db7d7c367839aaf71a00a2c6a65
+
+
+✅ All Security tests completed successfully!
+
+✓ Reentrancy guard prevented invalid state
+  Security - Reentrancy and Access Control Tests
+    Reentrancy Protection
+      ✔ Should prevent reentrancy in bid function (270ms)
+✓ EndAuction executed safely with reentrancy protection
+      ✔ Should prevent reentrancy in endAuction function (240ms)
+✓ Refund executed safely: 1000000000000000000 wei received
+      ✔ Should handle refunds safely without reentrancy (180ms)
+✓ Owner successfully updated fee recipient
+    Access Control - Owner Functions
+      ✔ Should allow only owner to set fee recipient (99ms)
+✓ Non-owner prevented from setting fee recipient
+      ✔ Should NOT allow non-owner to set fee recipient (97ms)
+✓ Owner successfully set custom fee tiers
+      ✔ Should allow only owner to set fee tiers (102ms)
+✓ Non-owner prevented from setting fee tiers
+      ✔ Should NOT allow non-owner to set fee tiers (91ms)
+✓ Owner successfully emergency cancelled auction
+      ✔ Should allow owner to emergency cancel auction (159ms)
+✓ Non-owner prevented from emergency cancelling
+      ✔ Should NOT allow non-owner to emergency cancel (158ms)
+✓ NFT owner successfully created auction
+    Access Control - NFT Ownership
+      ✔ Should only allow NFT owner to create auction (130ms)
+✓ Non-owner prevented from creating auction with others' NFT
+      ✔ Should NOT allow non-owner to create auction with others NFT (117ms)
+✓ Seller successfully ended their auction
+      ✔ Should only allow seller to end their auction (190ms)
+✓ Non-seller prevented from ending others' auction
+      ✔ Should NOT allow others to end someone else's auction (156ms)
+✓ Zero address rejected for fee recipient
+    Input Validation
+      ✔ Should reject zero address as fee recipient
+✓ Invalid duration rejected
+      ✔ Should reject invalid auction duration (128ms)
+✓ Low bid rejected
+      ✔ Should reject bids lower than start price (137ms)
+
+  Counter
+    ✔ 调用inc()函数时应发出Increment事件
+    ✔ Increment事件总和应匹配当前值 (135ms)
+
+Bank合约部署地址: 0x5fbdb2315678afecb367f032d93f642f64180aa3
+Bank合约初始余额: 20000000000000000000 wei
+Attack合约部署地址: 0x9fe46736679d2d9a65f0992f2272de9f3c7fa6e0
+Attack合约初始余额: 0 wei
+攻击完成，转账1 ETH调用attack()函数
+攻击后Bank合约余额: 0 wei
+攻击后Attack合约余额: 21000000000000000000 wei
+重入攻击成功完成!
+  ReentrancyAttack
+    ✔ should perform reentrancy attack successfully (143ms)
+
+
+  196 passing (36969ms)
+
+| Coverage Report                                     |        |             |                                                                                |                                                                                  |
+| --------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| File Path                                           | Line % | Statement % | Uncovered Lines                                                                | Partially Covered Lines                                                          |
+| contracts\Counter.sol                               | 100.00 | 100.00      | -                                                                              | -                                                                                |
+| contracts\jobOne\JobOne.sol                         | 0.00   | 0.00        | 10, 14-15, 21-24, 33, 38-41, 47, 56-63, 70-120, 127-144, 151-158, 169-200,…    | 21-23, 38-40, 59-61, 70-72, 130-142, 151-157, 177-186, 188-192, 194-198, 214-224 |
+| contracts\jobThree\Mock\MockAggregatorV3.sol        | 100.00 | 100.00      | -                                                                              | -                                                                                |
+| contracts\jobThree\Mock\MockERC20.sol               | 75.00  | 75.00       | 53                                                                             | -                                                                                |
+| contracts\study\ReentrancyAttack.sol                | 41.86  | 45.45       | 64, 68-74, 78, 89-95, 99, 104-110, 114                                         | -                                                                                |
+| contracts\study\Timelock.sol                        | 0.00   | 0.00        | 53-56, 61-64, 68-69, 73-74, 94-112, 127-141, 159-212, 219, 232-233             | 53-55, 61-63, 95-97, 128-130, 161-163, 165-167, 169-174, 185-193, 199-201        |
+| contracts\jobTwo\Begging.sol                        | 0.00   | 0.00        | 20, 28-29, 46-53, 63-64, 74, 83                                                | -                                                                                |
+| contracts\jobTwo\SimpleERC20.sol                    | 0.00   | 0.00        | 44-45, 61-67, 75, 84-85, 94-95, 107, 121-132, 141, 148-160, 167-171, 178-186,… | 128, 156-157, 182                                                                |
+| contracts\study\ABIEncode.sol                       | 0.00   | 0.00        | 11, 15, 19-25, 29-35, 50-53                                                    | -                                                                                |
+| contracts\study\PriceConsumer.sol                   | 0.00   | 0.00        | 11, 15-23                                                                      | -                                                                                |
+| contracts\study\Airfrop.sol                         | 0.00   | 0.00        | 21-33, 40-54, 59-69, 73                                                        | 21-23, 27-29, 31-33, 40-42, 45-47, 49-54, 60-62, 65-67, 69, 73                   |
+| contracts\study\Faucet.sol                          | 0.00   | 0.00        | 13, 17-29                                                                      | -                                                                                |
+| contracts\jobThree\Non-upgradable\PriceConsumer.sol | 0.00   | 0.00        | 41-42, 51-54, 62-63, 75-80, 89-105, 122-124, 133-139, 154-157, 174-181, 190,…  | 52, 76, 90, 100-102, 135-139, 155, 175, 210-217, 222-229, 245-247, 250-252       |
+| contracts\jobThree\Non-upgradable\NFTAuction.sol    | 0.00   | 0.00        | 176-177, 203-253, 268-292, 311-355, 369-458, 471-510, 523-524, 537-538, 549,…  | 204-207, 210-212, 224, 270-274, 277-282, 313-317, 329, 333-344, 371-372, 374,…   |
+| contracts\jobTwo\BaseERC721.sol                     | 0.00   | 0.00        | 69-72, 79-82, 89-90, 97-98, 105-112, 127-134, 141-146, 153-157, 164-173,…      | 387-410                                                                          |
+| contracts\jobThree\PriceConsumer.sol                | 75.21  | 62.35       | 251-279                                                                        | 79, 138, 148-150, 185-187, 203, 223, 258-265, 270-277, 298-300                   |
+| contracts\study\Signature.sol                       | 0.00   | 0.00        | 19, 27-48, 61-66, 80, 89-95, 108, 116, 124, 161, 178-188, 206-209, 216-218,…   | -                                                                                |
+| contracts\jobThree\Non-upgradable\NFTERC721.sol     | 0.00   | 0.00        | 37-38, 47-48, 71-88, 98, 108                                                   | 77-88                                                                            |
+| contracts\jobThree\NFTAuction.sol                   | 98.23  | 82.51       | 294-296, 370, 641-642, 748                                                     | 281-283, 309-311, 348-350, 354-356, 406-408, 458-459, 469, 492-494, 496, 521,…   |
+| contracts\study\DutchAuction.sol                    | 0.00   | 0.00        | 31, 38, 45, 50-70, 75-83, 88, 93, 98, 103-104                                  | 53, 55, 59, 62-66, 68-70, 75-83, 104                                             |
+| contracts\jobTwo\VividNFT.sol                       | 0.00   | 0.00        | 49-63, 74-84, 89-101, 112-129, 136, 142, 148, 155, 162, 169, 179-188           | 81-84, 182-185                                                                   |
+| contracts\jobThree\NFTERC721.sol                    | 100.00 | 100.00      | -                                                                              | -                                                                                |
+| contracts\study\Study.sol                           | 0.00   | 0.00        | 8-9                                                                            | -                                                                                |
+| --------------------------------------------------- | ------ | ----------- | ------------------------------------------------------------------------------ | -------------------------------------------------------------------------------- |
+| Total                                               | 30.91  | 26.22       |                                                                                |                                                                                  |
+
+

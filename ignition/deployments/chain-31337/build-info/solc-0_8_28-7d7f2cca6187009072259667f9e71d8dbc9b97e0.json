@@ -1,0 +1,39 @@
+{
+  "_format": "hh3-sol-build-info-1",
+  "id": "solc-0_8_28-7d7f2cca6187009072259667f9e71d8dbc9b97e0",
+  "solcVersion": "0.8.28",
+  "solcLongVersion": "0.8.28+commit.7893614a",
+  "userSourceNameMap": {
+    "contracts/study/ReentrancyAttack.sol": "project/contracts/study/ReentrancyAttack.sol"
+  },
+  "input": {
+    "language": "Solidity",
+    "settings": {
+      "evmVersion": "cancun",
+      "optimizer": {
+        "enabled": true,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "": [
+            "ast"
+          ],
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers",
+            "metadata"
+          ]
+        }
+      },
+      "remappings": []
+    },
+    "sources": {
+      "project/contracts/study/ReentrancyAttack.sol": {
+        "content": "// SPDX-License-Identifier: MIT\r\n// by 0xAA\r\npragma solidity ^0.8.21;\r\n\r\ncontract Bank {\r\n    mapping(address => uint256) public balanceOf; // 余额mapping\r\n\r\n    // 存入ether，并更新余额\r\n    function deposit() external payable {\r\n        balanceOf[msg.sender] += msg.value;\r\n    }\r\n\r\n    // 提取msg.sender的全部ether\r\n    function withdraw() external {\r\n        // 获取余额\r\n        uint256 balance = balanceOf[msg.sender];\r\n        require(balance > 0, \"Insufficient balance\");\r\n        // 转账 ether !!! 可能激活恶意合约的fallback/receive函数，有重入风险！\r\n        (bool success, ) = msg.sender.call{value: balance}(\"\");\r\n        require(success, \"Failed to send Ether\");\r\n        // 更新余额\r\n        balanceOf[msg.sender] = 0;\r\n    }\r\n\r\n    // 获取银行合约的余额\r\n    function getBalance() external view returns (uint256) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n\r\ncontract Attack {\r\n    Bank public bank; // Bank合约地址\r\n\r\n    // 初始化Bank合约地址\r\n    constructor(Bank _bank) {\r\n        bank = _bank;\r\n    }\r\n\r\n    // 回调函数，用于重入攻击Bank合约，反复的调用目标的withdraw函数\r\n    receive() external payable {\r\n        if (address(bank).balance >= 1 ether) {\r\n            bank.withdraw();\r\n        }\r\n    }\r\n\r\n    // 攻击函数，调用时 msg.value 设为 1 ether\r\n    function attack() external payable {\r\n        require(msg.value == 1 ether, \"Require 1 Ether to attack\");\r\n        bank.deposit{value: 1 ether}();\r\n        bank.withdraw();\r\n    }\r\n\r\n    // 获取本合约的余额\r\n    function getBalance() external view returns (uint256) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n\r\n// 利用 检查-影响-交互模式（checks-effect-interaction）防止重入攻击\r\ncontract GoodBank {\r\n    mapping(address => uint256) public balanceOf;\r\n\r\n    function deposit() external payable {\r\n        balanceOf[msg.sender] += msg.value;\r\n    }\r\n\r\n    function withdraw() external {\r\n        uint256 balance = balanceOf[msg.sender];\r\n        require(balance > 0, \"Insufficient balance\");\r\n        // 检查-效果-交互模式（checks-effect-interaction）：先更新余额变化，再发送ETH\r\n        // 重入攻击的时候，balanceOf[msg.sender]已经被更新为0了，不能通过上面的检查。\r\n        balanceOf[msg.sender] = 0;\r\n        (bool success, ) = msg.sender.call{value: balance}(\"\");\r\n        require(success, \"Failed to send Ether\");\r\n    }\r\n\r\n    function getBalance() external view returns (uint256) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n\r\n// 利用 重入锁 防止重入攻击\r\ncontract ProtectedBank {\r\n    mapping(address => uint256) public balanceOf;\r\n    uint256 private _status; // 重入锁\r\n\r\n    // 重入锁\r\n    modifier nonReentrant() {\r\n        // 在第一次调用 nonReentrant 时，_status 将是 0\r\n        require(_status == 0, \"ReentrancyGuard: reentrant call\");\r\n        // 在此之后对 nonReentrant 的任何调用都将失败\r\n        _status = 1;\r\n        _;\r\n        // 调用结束，将 _status 恢复为0\r\n        _status = 0;\r\n    }\r\n\r\n    function deposit() external payable {\r\n        balanceOf[msg.sender] += msg.value;\r\n    }\r\n\r\n    // 用重入锁保护有漏洞的函数\r\n    function withdraw() external nonReentrant {\r\n        uint256 balance = balanceOf[msg.sender];\r\n        require(balance > 0, \"Insufficient balance\");\r\n\r\n        (bool success, ) = msg.sender.call{value: balance}(\"\");\r\n        require(success, \"Failed to send Ether\");\r\n\r\n        balanceOf[msg.sender] = 0;\r\n    }\r\n\r\n    function getBalance() external view returns (uint256) {\r\n        return address(this).balance;\r\n    }\r\n}\r\n"
+      }
+    }
+  }
+}
