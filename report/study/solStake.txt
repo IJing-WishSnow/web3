@@ -1,0 +1,126 @@
+No contracts to compile
+
+Compiled 1 Solidity test file with solc 0.8.28 (evm target: cancun)
+
+Running Solidity tests
+
+  contracts/study/Stake.t.sol:StakeTest
+    ✔ test_Withdraw_WhenPaused()
+    ✔ test_Withdraw_Success()
+    ✔ test_Withdraw_PartialUnlock()
+    ✔ test_Withdraw_NoUnlockedAmount()
+    ✔ test_Withdraw_ERC20()
+    ✔ test_WithdrawAmount()
+    ✔ test_Upgrade_OnlyUpgradeRole()
+    ✔ test_Upgrade_AdminHasRole()
+    ✔ test_UpdatePool_Success()
+    ✔ test_UpdatePool_NoStakers()
+    ✔ test_UpdatePool_InvalidPid()
+    ✔ test_Unstake_WhenPaused()
+    ✔ test_Unstake_Success()
+    ✔ test_Unstake_MultipleRequests()
+    ✔ test_Unstake_InsufficientBalance()
+    ✔ test_Unstake_FullAmount()
+    ✔ test_UnpauseWithdraw_Success()
+    ✔ test_UnpauseWithdraw_NotPaused()
+    ✔ test_UnpauseClaim_Success()
+    ✔ test_UnpauseClaim_NotPaused()
+    ✔ test_StakingBalance()
+    ✔ test_SetStartBlock_Success()
+    ✔ test_SetStartBlock_InvalidValue()
+    ✔ test_SetPoolWeight_ZeroWeight()
+    ✔ test_SetPoolWeight_WithUpdate()
+    ✔ test_SetPoolWeight_Success()
+    ✔ test_SetMetaNode_Success()
+    ✔ test_SetMetaNode_OnlyAdmin()
+    ✔ test_SetMetaNodePerBlock_ZeroValue()
+    ✔ test_SetMetaNodePerBlock_Success()
+    ✔ test_SetEndBlock_Success()
+    ✔ test_SetEndBlock_InvalidValue()
+    ✔ test_ReentrancyAttack_Withdraw()
+    ✔ test_PoolLength()
+    ✔ test_PendingMetaNode_SingleUser()
+    ✔ test_PendingMetaNode_MultipleUsers()
+    ✔ test_PendingMetaNode_MultiplePools()
+    ✔ test_PendingMetaNode_AfterEndBlock()
+    ✔ test_PendingMetaNodeByBlockNumber()
+    ✔ test_PauseWithdraw_Success()
+    ✔ test_PauseWithdraw_OnlyAdmin()
+    ✔ test_PauseWithdraw_AlreadyPaused()
+    ✔ test_PauseClaim_Success()
+    ✔ test_PauseClaim_AlreadyPaused()
+    ✔ test_MultiUser_RewardDistribution()
+    ✔ test_MultiUser_Deposit_Unstake_Withdraw()
+    ✔ test_MassUpdatePools()
+    ✔ test_InvalidPid_Withdraw()
+    ✔ test_InvalidPid_Unstake()
+    ✔ test_InvalidPid_Deposit()
+    ✔ test_InvalidPid_Claim()
+    ✔ test_Initialize_Success()
+    ✔ test_Initialize_RolesGranted()
+    ✔ test_Initialize_InvalidParameters()
+    ✔ test_Initialize_CannotReinitialize()
+    ✔ test_GetMultiplier_SpanningEnd()
+    ✔ test_GetMultiplier_InvalidRange()
+    ✔ test_GetMultiplier_BeforeStart()
+    ✔ test_GetMultiplier_AfterEnd()
+    ✔ test_Deposit_ZeroMinAmount()
+    ✔ test_Deposit_MultipleDeposits()
+    ✔ test_Deposit_MaxAmount()
+    ✔ test_Deposit_ETHPoolFails()
+    ✔ test_Deposit_ERC20_Success()
+    ✔ test_Deposit_BelowMinimum()
+    ✔ test_DepositETH_Success()
+    ✔ test_DepositETH_BelowMinimum()
+    ✔ test_Constants()
+    ✔ test_CompleteWorkflow()
+    ✔ test_Claim_WhenPaused()
+    ✔ test_Claim_Success()
+    ✔ test_Claim_NoPending()
+    ✔ test_Claim_MultipleTimes()
+    ✔ test_Claim_InsufficientBalance()
+    ✔ test_AddPool_ZeroUnstakeLock()
+    ✔ test_AddPool_WithUpdate()
+    ✔ test_AddPool_SecondPoolCannotBeETH()
+    ✔ test_AddPool_FirstPoolMustBeETH()
+    ✔ test_AddPool_ETHPool_Success()
+    ✔ test_AddPool_ERC20Pool_Success()
+    ✔ test_AddPool_AfterEndBlock()
+
+
+  81 passing
+
+| Coverage Report                                     |        |             |                                                                                  |                                                                                  |
+| --------------------------------------------------- | ------ | ----------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| File Path                                           | Line % | Statement % | Uncovered Lines                                                                  | Partially Covered Lines                                                          |
+| contracts\Counter.sol                               | 0.00   | 0.00        | 10-11, 15-17                                                                     | -                                                                                |
+| contracts\jobThree\Mock\MockERC20.sol               | 0.00   | 0.00        | 28, 36, 46, 56, 68, 82, 92-98, 113                                               | 94-98                                                                            |
+| contracts\jobOne\JobOne.sol                         | 0.00   | 0.00        | 10, 14-15, 21-24, 33, 38-41, 47, 56-63, 70-120, 127-144, 151-158, 169-200,…      | 21-23, 38-40, 59-61, 70-72, 130-142, 151-157, 177-186, 188-192, 194-198, 214-224 |
+| contracts\jobThree\Mock\MockAggregatorV3.sol        | 0.00   | 0.00        | 16-21, 25-28, 36                                                                 | -                                                                                |
+| contracts\jobThree\Mock\MockERC721.sol              | 0.00   | 0.00        | 20-22, 32-36, 50, 66-70, 79-85, 94, 103-107, 120-123, 133-141, 157-182           | 158-182                                                                          |
+| contracts\jobThree\Mock\MockPriceConsumer.sol       | 0.00   | 0.00        | 18-19, 28, 43-46                                                                 | -                                                                                |
+| contracts\study\Timelock.sol                        | 0.00   | 0.00        | 53-56, 61-64, 68-69, 73-74, 94-112, 127-141, 159-212, 219, 232-233               | 53-55, 61-63, 95-97, 128-130, 161-163, 165-167, 169-174, 185-193, 199-201        |
+| contracts\study\Stake.sol                           | 100.00 | 100.00      | -                                                                                | -                                                                                |
+| contracts\jobThree\NFTERC721.sol                    | 0.00   | 0.00        | 36, 47-51, 67-68, 77, 84-85, 108-125, 135, 149, 159                              | 114-125                                                                          |
+| contracts\jobTwo\Begging.sol                        | 0.00   | 0.00        | 20, 28-29, 46-53, 63-64, 74, 83                                                  | -                                                                                |
+| contracts\jobTwo\SimpleERC20.sol                    | 0.00   | 0.00        | 44-45, 61-67, 75, 84-85, 94-95, 107, 121-132, 141, 148-160, 167-171, 178-186,…   | 128, 156-157, 182                                                                |
+| contracts\study\ABIEncode.sol                       | 0.00   | 0.00        | 11, 15, 19-25, 29-35, 50-53                                                      | -                                                                                |
+| contracts\study\ReentrancyAttack.sol                | 0.00   | 0.00        | 10, 15-22, 27, 36, 41-43, 48-50, 55, 64, 68-74, 78, 89-95, 99, 104-110, 114      | 41-43                                                                            |
+| contracts\study\Airfrop.sol                         | 0.00   | 0.00        | 21-33, 40-54, 59-69, 73                                                          | 21-23, 27-29, 31-33, 40-42, 45-47, 49-54, 60-62, 65-67, 69, 73                   |
+| contracts\study\Faucet.sol                          | 0.00   | 0.00        | 13, 17-29                                                                        | -                                                                                |
+| contracts\jobThree\Non-upgradable\PriceConsumer.sol | 0.00   | 0.00        | 41-42, 51-54, 62-63, 75-80, 89-105, 122-124, 133-139, 154-157, 174-181, 190,…    | 52, 76, 90, 100-102, 135-139, 155, 175, 210-217, 222-229, 245-247, 250-252       |
+| contracts\jobThree\Non-upgradable\NFTAuction.sol    | 0.00   | 0.00        | 176-177, 203-253, 268-292, 311-355, 369-458, 471-510, 523-524, 537-538, 549,…    | 204-207, 210-212, 224, 270-274, 277-282, 313-317, 329, 333-344, 371-372, 374,…   |
+| contracts\jobTwo\BaseERC721.sol                     | 0.00   | 0.00        | 69-72, 79-82, 89-90, 97-98, 105-112, 127-134, 141-146, 153-157, 164-173,…        | 387-410                                                                          |
+| contracts\jobThree\PriceConsumer.sol                | 0.00   | 0.00        | 49, 57-62, 78-81, 96-100, 108-109, 121-126, 137-153, 170-172, 181-187, 202-205,… | 79, 96, 98-100, 122, 138, 148-150, 183-187, 203, 223, 258-265, 270-277,…         |
+| contracts\jobThree\Non-upgradable\NFTERC721.sol     | 0.00   | 0.00        | 37-38, 47-48, 71-88, 98, 108                                                     | 77-88                                                                            |
+| contracts\study\IWSToken.sol                        | 0.00   | 0.00        | 22, 32-41, 47, 51, 55, 62-65, 69, 73, 77, 81, 85, 93-94, 98-100                  | 39-41, 63-65                                                                     |
+| contracts\study\Signature.sol                       | 0.00   | 0.00        | 19, 27-48, 61-66, 80, 89-95, 108, 116, 124, 161, 178-188, 206-209, 216-218,…     | -                                                                                |
+| contracts\jobThree\NFTAuction.sol                   | 0.00   | 0.00        | 211, 221-262, 280-296, 308-327, 339-362, 370, 378, 386, 399-449, 456-480,…       | 281-283, 286-293, 309-311, 343-360, 400-403, 406-408, 420, 458-462, 465-470,…    |
+| contracts\study\DutchAuction.sol                    | 0.00   | 0.00        | 31, 38, 45, 50-70, 75-83, 88, 93, 98, 103-104                                    | 53, 55, 59, 62-66, 68-70, 75-83, 104                                             |
+| contracts\jobTwo\VividNFT.sol                       | 0.00   | 0.00        | 49-63, 74-84, 89-101, 112-129, 136, 142, 148, 155, 162, 169, 179-188             | 81-84, 182-185                                                                   |
+| contracts\study\PriceConsumer.sol                   | 0.00   | 0.00        | 11, 15-23                                                                        | -                                                                                |
+| contracts\study\Study.sol                           | 0.00   | 0.00        | 8-9                                                                              | -                                                                                |
+| --------------------------------------------------- | ------ | ----------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| Total                                               | 17.04  | 17.04       |                                                                                  |                                                                                  |
+
+
